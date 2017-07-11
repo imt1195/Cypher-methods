@@ -16,15 +16,13 @@ char *Ceasar_Encrypt() {
 
 		if (ch >= 'a' && ch <= 'z') {
 			ch = ch + key;
-			if (ch > 'z') {
+			if (ch > 'z') 
 				ch = ch - 'z' + 'a' - 1;
-			}
 			message[i] = ch;
 		}else if (ch >= 'A' && ch <= 'Z') {
 			ch = ch + key;
-			if (ch > 'Z') {
+			if (ch > 'Z')
 				ch = ch - 'Z' + 'A' - 1;
-			}
 			message[i] = ch;
 		}
 	}
@@ -45,19 +43,13 @@ char *Ceasar_Decrypt() {
 
 		if (ch >= 'a' && ch <= 'z') {
 			ch = ch - key;
-
-			if (ch < 'a') {
+			if (ch < 'a')
 				ch = ch + 'z' - 'a' + 1;
-			}
-
 			message[i] = ch;
 		}else if (ch >= 'A' && ch <= 'Z') {
 			ch = ch - key;
-
-			if (ch < 'A') {
+			if (ch < 'A')
 				ch = ch + 'Z' - 'A' + 1;
-			}
-
 			message[i] = ch;
 		}
 	}

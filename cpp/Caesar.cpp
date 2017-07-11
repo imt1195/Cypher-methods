@@ -1,57 +1,57 @@
 #include "Cyphers.h"
 
-char message[1000];
+char Caesar_Message[1000];
 
 char *Ceasar_Encrypt() {
 	char ch;
 	int key;
 
 	cout << "Enter a message to encrypt: " << endl;
-	cin >> message;
+	cin >> Caesar_Message;
 	cout << "Enter key (number): " << endl;
 	cin >> key;
 
-	for (int i = 0; message[i] != '\0'; ++i) {
-		ch = message[i];
+	for (int i = 0; Caesar_Message[i] != '\0'; ++i) {
+		ch = Caesar_Message[i];
 
 		if (ch >= 'a' && ch <= 'z') {
 			ch = ch + key;
-			if (ch > 'z') 
+			if (ch > 'z')
 				ch = ch - 'z' + 'a' - 1;
-			message[i] = ch;
+			Caesar_Message[i] = ch;
 		}else if (ch >= 'A' && ch <= 'Z') {
 			ch = ch + key;
 			if (ch > 'Z')
 				ch = ch - 'Z' + 'A' - 1;
-			message[i] = ch;
+			Caesar_Message[i] = ch;
 		}
 	}
-	return message;
+	return Caesar_Message;
 }
 
 char *Ceasar_Decrypt() {
 	char ch;
 	int key;
 
-	cout << "Enter a message to decrypt: " << endl;
-	cin >> message;
+	cout << "Enter a Caesar_Message to decrypt: " << endl;
+	cin >> Caesar_Message;
 	cout << "Enter key (number): " << endl;
 	cin >> key;
 
-	for (int i = 0; message[i] != '\0'; ++i) {
-		ch = message[i];
+	for (int i = 0; Caesar_Message[i] != '\0'; ++i) {
+		ch = Caesar_Message[i];
 
 		if (ch >= 'a' && ch <= 'z') {
 			ch = ch - key;
 			if (ch < 'a')
 				ch = ch + 'z' - 'a' + 1;
-			message[i] = ch;
+			Caesar_Message[i] = ch;
 		}else if (ch >= 'A' && ch <= 'Z') {
 			ch = ch - key;
 			if (ch < 'A')
 				ch = ch + 'Z' - 'A' + 1;
-			message[i] = ch;
+			Caesar_Message[i] = ch;
 		}
 	}
-	return message;
+	return Caesar_Message;
 }
